@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity, ScrollView } from "react-native";
 import {useState} from 'react';
 import MainLayout from '../layouts/MainLayout';
 import ToDoList from "../components/ToDoList";
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     },
     txt: {
       color: 'orange',
-      fontSize: 20
+      fontSize: 20,
+      fontWeight: 'bold'
     }
 });

@@ -89,6 +89,7 @@ const styles = StyleSheet.create({
     },
     txt: {
       color: 'orange',
-      fontSize: 20
+      fontSize: 20,
+      fontWeight: 'bold'
     }
 });

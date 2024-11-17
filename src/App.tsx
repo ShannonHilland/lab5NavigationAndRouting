@@ -12,12 +12,28 @@ import AboutScreen  from './screens/AboutScreen';
 const Stack = createNativeStackNavigator();
 
 function App(): React.JSX.Element {
+
+  function getScreenOptions() : any {
+    const options = {
+      headerTintColor: '#727272',
+      headerStyle: { backgroundColor: '#FFC484' },
+      headerTitleAlign: 'center',
+      headerTitleStyle: {
+        fontWeight: '500',
+        fontSize: 24
+      }
+    }
+    return options;
+  }
+    
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        initialRouteName='Home'
+        screenOptions={getScreenOptions}>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="About" component={AboutScreen} />
-        </Stack.Navigator>
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
