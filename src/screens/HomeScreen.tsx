@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Button } from "react-native";
+import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import {useState} from 'react';
 import MainLayout from '../layouts/MainLayout';
 import ToDoList from "../components/ToDoList";
@@ -22,16 +22,25 @@ export default function HomeScreen({navigation} : any) : React.JSX.Element {
     <MainLayout>
       <ToDoList tasks={list}/>
       <ToDoForm addTask={addTask} />
-      <Button
-            title="Go to About"
-            onPress={() => navigation.navigate('About')}
-        />
+      <TouchableOpacity onPress={() =>navigation.navigate('About')} style={styles.nav}>
+        <Text style={styles.txt}>Go to About</Text>
+      </TouchableOpacity>
     </MainLayout>
   );
 }
 
 const styles = StyleSheet.create({
-    container: {
-
+    nav: {
+      position: 'absolute',
+      bottom: 70,
+      alignSelf: 'center',
+      borderColor: 'orange',
+      borderWidth: 2,
+      borderRadius: 10,
+      padding: 10,
     },
+    txt: {
+      color: 'orange',
+      fontSize: 20
+    }
 });

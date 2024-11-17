@@ -9,28 +9,29 @@ export default function AboutScreen({navigation} : any) : React.JSX.Element {
   
   return (
     <MainLayout>
-      <View style={styles.txtContainer}>
-        <Text style={styles.txtsm}>Welcome to</Text>
-        <Text style={styles.txtlg}>TickIt</Text>
+      <View style={styles.cardContainer}>
+        <View style={styles.txtContainer}>
+          <Text style={styles.txtsm}>Welcome to</Text>
+          <Text style={styles.txtlg}>TickIt</Text>
+        </View>
+        <Text style={styles.dev}>This app was developed by</Text>
+        <TouchableOpacity onPress={() => setShowConfetti(true)}>
+          {showConfetti && (
+            <ConfettiCannon
+              count={200}
+              origin={{ x: -10, y: 0}} 
+              onAnimationEnd={() => setShowConfetti(false)} 
+            />
+          )}
+          <Text style={styles.dev}>Shannon Hilland</Text>
+        </TouchableOpacity>
+        <View style={styles.sep}></View>
+        <Text style={styles.dev}>Last Updated On:</Text>
+        <Text style={styles.dev}>November 16, 2024 🍂</Text>
       </View>
-      <Text style={styles.dev}>This app was developed by</Text>
-      <TouchableOpacity onPress={() => setShowConfetti(true)}>
-        {showConfetti && (
-          <ConfettiCannon
-            count={200}
-            origin={{ x: -10, y: 0}} 
-            onAnimationEnd={() => setShowConfetti(false)} 
-          />
-        )}
-        <Text style={styles.dev}>Shannon Hilland</Text>
+      <TouchableOpacity onPress={() =>navigation.goBack()} style={styles.nav}>
+        <Text style={styles.txt}>Go to Home</Text>
       </TouchableOpacity>
-      <View style={styles.sep}></View>
-      <Text style={styles.dev}>Last Updated On:</Text>
-      <Text style={styles.dev}>November 16, 2024 🍂</Text>
-      <Button
-            title="Go to Home"
-            onPress={() => navigation.navigate('Home')}
-        />
     </MainLayout>
   );
 }
@@ -60,6 +61,12 @@ const styles = StyleSheet.create({
       borderRadius: 45,
       backgroundColor: '#f7f9fc'
     },
+    cardContainer: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingBottom: 120
+    },
     dev: {
       textAlign: "center",
       fontSize: 20,
@@ -70,5 +77,18 @@ const styles = StyleSheet.create({
       margin: 20,
       borderBottomWidth: 2,
       borderColor:"orange"
+    },
+    nav: {
+      position: 'absolute',
+      bottom: 70,
+      alignSelf: 'center',
+      borderColor: 'orange',
+      borderWidth: 2,
+      borderRadius: 10,
+      padding: 10,
+    },
+    txt: {
+      color: 'orange',
+      fontSize: 20
     }
 });
