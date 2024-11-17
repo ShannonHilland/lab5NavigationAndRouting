@@ -3,9 +3,11 @@ import {useState} from 'react';
 import { StyleSheet, Text, View, Button, TouchableOpacity } from "react-native";
 import ConfettiCannon from 'react-native-confetti-cannon';
 import MainLayout from '../layouts/MainLayout';
+import { get } from "react-native/Libraries/TurboModule/TurboModuleRegistry";
 
 export default function AboutScreen({navigation} : any) : React.JSX.Element {
   const [showConfetti, setShowConfetti] = useState(false); 
+  const date = new Date();
   
   return (
     <MainLayout>
@@ -26,8 +28,8 @@ export default function AboutScreen({navigation} : any) : React.JSX.Element {
           <Text style={styles.dev}>Shannon Hilland</Text>
         </TouchableOpacity>
         <View style={styles.sep}></View>
-        <Text style={styles.dev}>Last Updated On:</Text>
-        <Text style={styles.dev}>November 16, 2024 🍂</Text>
+        <Text style={styles.dev}>Today's Date:</Text>
+        <Text style={styles.dev}>{date.toDateString()} 🍂</Text>
       </View>
       <TouchableOpacity onPress={() =>navigation.goBack()} style={styles.nav}>
         <Text style={styles.txt}>Go to Home</Text>
