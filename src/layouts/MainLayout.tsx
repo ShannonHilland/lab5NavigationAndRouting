@@ -6,7 +6,9 @@ const MainLayout = ({ children }: any) => {
   return (
     <View style={styles.container}>
       {children}
-      <Footer />
+      <View style={styles.footer}>
+        <Footer />
+      </View>
     </View>
   );
 };
@@ -16,6 +18,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
   },
+  footer: {
+    position: 'absolute',
+    margin: 10,
+    bottom: 10,
+    width: '100%'
+  }
 });
 
 export default MainLayout;
